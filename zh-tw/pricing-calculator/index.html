@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>居家清潔報價計算器（免費）| CleanCalc</title>
+<meta name="description" content="用房間數、浴室數、平方英尺與頻率估算清潔工時與單次價格區間。免註冊。">
+<link rel="canonical" href="https://q1lord.github.io/cleancalc/zh-tw/pricing-calculator/">
+<link rel="alternate" hreflang="en" href="https://q1lord.github.io/cleancalc/pricing-calculator/">
+<link rel="alternate" hreflang="zh-Hant" href="https://q1lord.github.io/cleancalc/zh-tw/pricing-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://q1lord.github.io/cleancalc/pricing-calculator/">
+<meta property="og:title" content="居家清潔報價計算器（免費）| CleanCalc">
+<meta property="og:description" content="用房間數、浴室數、平方英尺與頻率估算清潔工時與單次價格區間。免註冊。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://q1lord.github.io/cleancalc/zh-tw/pricing-calculator/">
+<meta property="og:locale" content="zh_TW">
+<link rel="stylesheet" href="../../assets/style.css">
+
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../../">CleanCalc<span>.</span></a>
+  <nav class="top">
+    <a href="../../zh-tw/pricing-calculator/">報價計算器</a>
+    <a href="../../zh-tw/guides/">指南</a>
+    <a href="../../zh-tw/about/">關於</a>
+  </nav>
+  <div class="lang">
+    <a href="../../pricing-calculator/">EN</a>
+    <span style="color:#d1d5db">/</span>
+    <a href="../../zh-tw/pricing-calculator/" class="on">繁中</a>
+  </div>
+</div></header>
+<main><div class="wrap">
+
+<p class="small" style="margin-bottom:18px">免費工具 · 免註冊 · 在你的瀏覽器裡計算</p>
+<h1>居家清潔報價計算器</h1>
+<p class="lede">輸入房屋大小，計算器估算清潔工時與可辯護的單次價格區間，再依你所在城市調整時薪。</p>
+
+<div class="card">
+  <div class="row">
+    <div><label for="beds">臥室數</label>
+      <select id="beds"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div><label for="baths">浴室數</label>
+      <select id="baths"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+    <div><label for="sqft">平方英尺</label>
+      <input id="sqft" type="number" value="1500" min="300" max="8000" step="50"></div>
+  </div>
+  <div class="row">
+    <div><label for="freq">頻率</label>
+      <select id="freq">
+        <option value="weekly">每週</option>
+        <option value="biweekly" selected>每兩週</option>
+        <option value="monthly">每月</option>
+        <option value="once">單次 / 大掃除</option>
+      </select></div>
+    <div><label for="rate">你的時薪（美元）</label>
+      <input id="rate" type="number" value="45" min="20" max="120" step="1"></div>
+    <div><label for="extras">加購項目</label>
+      <select id="extras">
+        <option value="0">無</option>
+        <option value="25">冰箱內部＋烤箱（+25）</option>
+        <option value="40">家中有寵物（+15）</option>
+        <option value="60">搬出清潔（+40%）</option>
+      </select></div>
+  </div>
+  <div class="out">
+    <div class="small" style="margin-bottom:2px">建議單次價格</div>
+    <div class="num" id="price">$0 <small>每次</small></div>
+    <div class="small" id="detail" style="margin-top:6px"></div>
+  </div>
+  <p class="small" style="margin:14px 0 0">估算假設房屋維持在定期清潔的狀態，不是第一次的深層清潔。
+  「單次」選項本身已含加成。</p>
+</div>
+
+<h2>這個估算是怎麼算出來的</h2>
+<p>計算器沒有藏魔術數字。它用面積與房間數估工時，乘上你自己設定的時薪，再為單次與重度案件加價。
+改時薪會改變全部結果——這正是重點：<b>你的時薪是商業決策，不是秘密。</b></p>
+<table>
+  <tr><th>輸入</th><th>作用</th></tr>
+  <tr><td>平方英尺</td><td>地板與檯面時間的主要來源，模型約每 1,000 平方英尺 0.6 小時。</td></tr>
+  <tr><td>臥室數</td><td>加上除塵、床鋪與檯面時間（每間約 0.35 小時）。</td></tr>
+  <tr><td>浴室數</td><td>單位面積最耗時的空間（每間約 0.45 小時）。</td></tr>
+  <tr><td>頻率</td><td>定期清潔每次較快；單次案件加價 30%。</td></tr>
+  <tr><td>時薪</td><td>你的人事成本加利潤。多數單人清潔業者從每小時 35–55 美元起。</td></tr>
+</table>
+
+<h2>報價給真實客戶之前</h2>
+<ul>
+  <li><b>先替自己計時一次。</b>拿碼錶清一次自己家。在做過這件事之前，你的估算會差 20–40%。</li>
+  <li><b>把車程與耗材算進去。</b>計算器沒有包含這兩項。兩小時的清潔、25 分鐘車程，實際占掉你三小時。</li>
+  <li><b>報區間，不要報單一數字。</b>「大約 140 到 170 美元，看過現場後確認」能在房子比描述更糟時保護你。</li>
+  <li><b>不要只看照片報價。</b>照片看不出雜物、寵物，也看不出距離上次清潔多久。</li>
+</ul>
+
+<div class="note"><b>不確定當地行情？</b>問三家當地清潔公司同樣大小的房子收多少，然後刻意決定你的定位——而不是不小心被定位。</div>
+
+<h2>相關指南</h2>
+<div class="grid">
+  <a class="tile" href="../../zh-tw/guides/how-much-to-charge-for-house-cleaning/"><b>該收多少錢</b>
+    <span>按小時、統包、按房間三種模式的差別，以及多數人沒算的有效時薪。</span></a>
+  <a class="tile" href="../../zh-tw/guides/get-first-cleaning-customers/"><b>取得前十位客戶</b>
+    <span>鄰里開發、轉介紹話術，以及一次划算的免費清潔。</span></a>
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('beds'),ba=document.getElementById('baths'),
+      sq=document.getElementById('sqft'),f=document.getElementById('freq'),
+      r=document.getElementById('rate'),ex=document.getElementById('extras'),
+      price=document.getElementById('price'),detail=document.getElementById('detail');
+
+  var freqMult={weekly:1.0,biweekly:1.05,monthly:1.15,once:1.30};
+
+  function calc(){
+    var beds=+b.value, baths=+ba.value, sqft=+sq.value||0, rate=+r.value||45;
+    var hours=1.5+0.35*beds+0.45*baths+(sqft/1000)*0.6;
+    var mult=freqMult[f.value]||1;
+
+    var extras=+ex.value||0, addDollars=0, addPct=0;
+    if(extras===60){ addPct=0.40; }
+    else if(extras===25){ addDollars=25; }
+    else if(extras===40){ addDollars=15; }
+
+    var base=hours*rate;
+    var total=(base*mult+addDollars)*(1+addPct);
+    var low=Math.round(total*0.88/5)*5, high=Math.round(total*1.12/5)*5;
+
+    price.innerHTML='$'+low+'–$'+high+' <small>每次</small>';
+    detail.textContent=('約 '+hours.toFixed(1)+' 工時，時薪 $'+rate
+      + (f.value==='monthly'?' · 每月一次通常比定期維護更久':'')
+      + ' · 區間反映屋況與動線差異');
+  }
+  [b,ba,sq,f,r,ex].forEach(function(el){ el.addEventListener('input',calc); el.addEventListener('change',calc); });
+  calc();
+})();
+</script>
+
+</div></main>
+<footer class="site"><div class="wrap">
+  <div class="footlinks">
+    <a href="../../zh-tw/pricing-calculator/">報價計算器</a>
+    <a href="../../zh-tw/guides/">指南</a>
+    <a href="../../zh-tw/about/">關於</a>
+    <a href="../../zh-tw/privacy/">隱私權</a>
+    <a href="../../zh-tw/affiliate-disclosure/">聯盟揭露</a>
+  </div>
+  <div>© 2026 CleanCalc。所有估算僅供參考，不構成報價。部分外部連結可能為聯盟連結，詳見揭露說明。</div>
+</div></footer>
+</body>
+</html>
