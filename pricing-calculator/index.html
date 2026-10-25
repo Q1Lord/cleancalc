@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>House cleaning pricing calculator (free) | CleanCalc</title>
+<meta name="description" content="Estimate cleaning hours and a per-visit price range from bedrooms, bathrooms, square footage and frequency. No signup.">
+<link rel="canonical" href="https://q1lord.github.io/cleancalc/pricing-calculator/">
+<meta property="og:title" content="House cleaning pricing calculator (free) | CleanCalc">
+<meta property="og:description" content="Estimate cleaning hours and a per-visit price range from bedrooms, bathrooms, square footage and frequency. No signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://q1lord.github.io/cleancalc/pricing-calculator/">
+<link rel="stylesheet" href="../assets/style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "House cleaning pricing calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Estimate cleaning hours and a per-visit price range for residential cleaning quotes."}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../">CleanCalc<span>.</span></a>
+  <nav class="top">
+    <a href="../pricing-calculator/">Pricing calculator</a>
+    <a href="../guides/">Guides</a>
+    <a href="../about/">About</a>
+  </nav>
+</div></header>
+<main><div class="wrap">
+
+<p class="small" style="margin-bottom:18px">Free tool · no signup · runs in your browser</p>
+<h1>House cleaning pricing calculator</h1>
+<p class="lede">Enter the size of the home. The calculator estimates cleaning hours and a defensible
+per-visit price range — then you adjust the hourly rate to your city.</p>
+
+<div class="card">
+  <div class="row">
+    <div><label for="beds">Bedrooms</label>
+      <select id="beds"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option></select></div>
+    <div><label for="baths">Bathrooms</label>
+      <select id="baths"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+    <div><label for="sqft">Square feet</label>
+      <input id="sqft" type="number" value="1500" min="300" max="8000" step="50"></div>
+  </div>
+  <div class="row">
+    <div><label for="freq">Frequency</label>
+      <select id="freq">
+        <option value="weekly">Weekly</option>
+        <option value="biweekly" selected>Every two weeks</option>
+        <option value="monthly">Monthly</option>
+        <option value="once">One-time / deep clean</option>
+      </select></div>
+    <div><label for="rate">Your hourly rate ($)</label>
+      <input id="rate" type="number" value="45" min="20" max="120" step="1"></div>
+    <div><label for="extras">Extras</label>
+      <select id="extras">
+        <option value="0">None</option>
+        <option value="25">Inside fridge + oven (+$25)</option>
+        <option value="40">Pets in the home (+$15)</option>
+        <option value="60">Move-out clean (+40%)</option>
+      </select></div>
+  </div>
+  <div class="out">
+    <div class="small" style="margin-bottom:2px">Suggested per-visit price</div>
+    <div class="num" id="price">$0 <small>per visit</small></div>
+    <div class="small" id="detail" style="margin-top:6px"></div>
+  </div>
+  <p class="small" style="margin:14px 0 0">Estimates assume a maintained home, not a first-time deep clean.
+  The "one-time" setting already adds a premium.</p>
+</div>
+
+<h2>How the estimate is built</h2>
+<p>The calculator does not hide a magic number. It estimates labour hours from the size and room count,
+multiplies by an hourly rate you control, and adds a premium for one-off and heavy jobs. Changing the
+hourly rate changes everything — which is the point: <b>your rate is a business decision, not a secret.</b></p>
+<table>
+  <tr><th>Input</th><th>What it does</th></tr>
+  <tr><td>Square feet</td><td>Main driver of floor and surface time. Roughly 0.6 hours per 1,000 sq ft in the model.</td></tr>
+  <tr><td>Bedrooms</td><td>Adds dusting, bedding and surface time (about 0.35 h each).</td></tr>
+  <tr><td>Bathrooms</td><td>The slowest room per square foot (about 0.45 h each).</td></tr>
+  <tr><td>Frequency</td><td>Recurring cleans are faster per visit; one-time jobs carry a 30% premium.</td></tr>
+  <tr><td>Hourly rate</td><td>Your labour cost plus margin. Most solo cleaners start between $35 and $55.</td></tr>
+</table>
+
+<h2>Before you quote a real customer</h2>
+<ul>
+  <li><b>Time yourself once.</b> Clean your own home with a stopwatch. Your estimate will be wrong by
+  20–40% until you have done this.</li>
+  <li><b>Add drive time and supplies.</b> Neither is in the calculator. A two-hour clean 25 minutes away
+  is a three-hour block of your day.</li>
+  <li><b>Quote a range, not a number.</b> "Between $140 and $170, confirmed after I see the place" protects
+  you when the house is worse than described.</li>
+  <li><b>Never quote from a photo alone.</b> Photos hide clutter, pets, and how long it has been since
+  the last clean.</li>
+</ul>
+
+<div class="note"><b>Not sure about your market?</b> Ask three local cleaners what they charge for the same
+size home, then position yourself deliberately — not accidentally.</div>
+
+<h2>Related guides</h2>
+<div class="grid">
+  <a class="tile" href="../guides/how-much-to-charge-for-house-cleaning/"><b>How much to charge</b>
+    <span>Hourly vs flat rate vs room-based, and the number most owners never calculate.</span></a>
+  <a class="tile" href="../guides/get-first-cleaning-customers/"><b>Getting the first 10 customers</b>
+    <span>Neighbourhood outreach, referral scripts, and the free clean that pays for itself.</span></a>
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('beds'),ba=document.getElementById('baths'),
+      sq=document.getElementById('sqft'),f=document.getElementById('freq'),
+      r=document.getElementById('rate'),ex=document.getElementById('extras'),
+      price=document.getElementById('price'),detail=document.getElementById('detail');
+
+  var freqMult={weekly:1.0,biweekly:1.05,monthly:1.15,once:1.30};
+
+  function calc(){
+    var beds=+b.value, baths=+ba.value, sqft=+sq.value||0, rate=+r.value||45;
+    var hours=1.5+0.35*beds+0.45*baths+(sqft/1000)*0.6;
+    var mult=freqMult[f.value]||1;
+
+    var extras=+ex.value||0, addDollars=0, addPct=0;
+    if(extras===60){ addPct=0.40; }
+    else if(extras===25){ addDollars=25; }
+    else if(extras===40){ addDollars=15; }
+
+    var base=hours*rate;
+    var total=(base*mult+addDollars)*(1+addPct);
+    var low=Math.round(total*0.88/5)*5, high=Math.round(total*1.12/5)*5;
+
+    price.innerHTML='$'+low+'–$'+high+' <small>per visit</small>';
+    detail.textContent=('About '+hours.toFixed(1)+' labour hours at $'+rate+'/hr'
+      + (f.value==='monthly'?' · monthly visits run longer than maintained fortnightly ones':'')
+      + ' · range reflects condition and access');
+  }
+  [b,ba,sq,f,r,ex].forEach(function(el){ el.addEventListener('input',calc); el.addEventListener('change',calc); });
+  calc();
+})();
+</script>
+
+</div></main>
+<footer class="site"><div class="wrap">
+  <div class="footlinks">
+    <a href="../pricing-calculator/">Pricing calculator</a>
+    <a href="../guides/">Guides</a>
+    <a href="../about/">About</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../affiliate-disclosure/">Affiliate disclosure</a>
+  </div>
+  <div>© 2026 CleanCalc. Estimates are general guidance, not a quote.
+  Some outbound links may be affiliate links; see the <a href="../affiliate-disclosure/">disclosure</a>.</div>
+</div></footer>
+</body>
+</html>
