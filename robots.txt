@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://q1lord.github.io/cleancalc/sitemap.xml
