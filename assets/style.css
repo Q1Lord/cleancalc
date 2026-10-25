@@ -58,8 +58,13 @@ footer.site .wrap{max-width:960px}
 footer.site a{color:var(--muted)}
 .footlinks{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:10px}
 blockquote{margin:0 0 16px;padding:4px 0 4px 18px;border-left:3px solid var(--line);color:var(--muted)}
+.lang{margin-left:16px;display:flex;gap:5px;align-items:center;font-size:13.5px;white-space:nowrap}
+.lang a{color:var(--muted);text-decoration:none;padding:3px 7px;border-radius:5px}
+.lang a:hover{color:var(--ink);background:#f1f5f4}
+.lang a.on{color:var(--ink);background:#eef2f1;font-weight:700}
 @media(max-width:600px){
   h1{font-size:1.75rem} h2{font-size:1.24rem} body{font-size:16.5px}
   header.site .wrap{height:auto;padding:14px 22px;flex-wrap:wrap;gap:10px}
   nav.top{margin-left:0;gap:14px;font-size:13.5px}
+  .lang{margin-left:0}
 }
